@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import './Gallery.css'
-// import CloseIcon from '@mui/icons-material/Close';
-
 import img1 from '../../../Image/Gallery/img1.jpg'
 import img2 from '../../../Image/Gallery/img2.jpg'
 import img3 from '../../../Image/Gallery/img3.jpg'
@@ -10,7 +8,7 @@ import img5 from '../../../Image/Gallery/img5.jpg'
 import img6 from '../../../Image/Gallery/img6.jpg'
 import img7 from '../../../Image/Gallery/img7.jpg'
 import img8 from '../../../Image/Gallery/img8.jpg'
-import { FaGithub, AiOutlineClose } from 'react-icons/fa';
+import {  AiOutlineClose } from 'react-icons/ai';
 
 const Gallery = () => {
 
@@ -61,8 +59,7 @@ const Gallery = () => {
 
             <div className={model? "model open" : "model"}>
             <img src={tempimgSrc} alt="" />
-            {/* <CloseIcon/> */}
-            <FaGithub onClick={() => setModel(false)}/>
+            <AiOutlineClose onClick={() => setModel(false)}/>
 
             </div>
 
