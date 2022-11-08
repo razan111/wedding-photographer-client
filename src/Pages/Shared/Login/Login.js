@@ -1,11 +1,41 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext)
+    const {signIn, googleProviderLogin, gitHubProviderLogIn} = useContext(AuthContext)
+    const googleProvider = new GoogleAuthProvider()
+    const gitHubProvider = new GithubAuthProvider()
+
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
+
+    const handleGoogleSignIn = () => {
+        googleProviderLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true })
+                
+            })
+            .catch(error => console.error(error))
+    }
+
+
+    const handleGitHubSignIn = () =>{
+        gitHubProviderLogIn(gitHubProvider)
+        .then(result =>{
+            const user = result.user
+            console.log(user)
+            navigate(from, { replace: true })
+            
+        })
+        .catch(error => console.error(error))
+    }
 
     const handleLogIn = event =>{
         event.preventDefault()
@@ -51,8 +81,8 @@ const Login = () => {
 
                             {/* social icon  */}
                         <div className='flex justify-center text-3xl'>
-                       <FaGoogle className='mr-3'/>
-                        <FaGithub/>
+                       <FaGoogle onClick={handleGoogleSignIn} className='mr-3'/>
+                        <FaGithub onClick={handleGitHubSignIn}/>
                         </div>
                     </form>
                 </div>

@@ -6,14 +6,23 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const Header = () => {
-    const {user} = useContext(AuthContext)
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut = () => {
+      logOut()
+        .then(result => {
+          const user = result.user;
+          console.log(user)
+        })
+        .catch(error => console.error(error))
+    }
 
     const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
    {
-    user?.email ?  
+    user?.uid ?  
     <>
-    <li className='font-semibold'><Link>LogOut</Link></li>
+    <li onClick={handleLogOut} className='font-semibold'><Link>LogOut</Link></li>
     </>
     :
      <li className='font-semibold'><Link to='/login'>LogIn</Link></li>
