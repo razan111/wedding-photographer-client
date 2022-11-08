@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaGithubAlt, FaGoogle, FcGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     return (
