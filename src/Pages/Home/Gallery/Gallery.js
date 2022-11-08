@@ -56,8 +56,8 @@ const Gallery = () => {
         setModel(true);
     }
     return (
-        <div>
-            <h1 className='text-3xl text-center'>This is gallery</h1>
+        <div className='my-12'>
+            <h1 className='text-5xl italic font-bold text-center  mb-5'>This is gallery</h1>
 
             <div className={model? "model open" : "model"}>
             <img src={tempimgSrc} alt="" />
