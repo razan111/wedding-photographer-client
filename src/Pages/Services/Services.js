@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
 import './Services.css'
 
 const Services = () => {
     const [services, setServices] = useState([]);
     const [count, setCount] = useState(0);
-    // const [cart, setCart] = useState([]);
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(6);
 
@@ -23,6 +21,7 @@ const Services = () => {
     }, [page, size])
     return (
        <>
+       <h2 className='my-6 text-5xl font-bold text-center'>This is our Service</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {
                 services.map(service => <ServiceCard
