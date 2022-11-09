@@ -6,6 +6,19 @@ const AddService = () => {
 
     const handleAddUser = (event) =>{
         event.preventDefault()
+
+        fetch('http://localhost:5000/services', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
     }
     const handleInputBlur = event =>{
         const field = event.target.name;
@@ -14,6 +27,7 @@ const AddService = () => {
         newUser[field] = value;
         setUser(newUser)
     }
+
 
     return (
         <div>
