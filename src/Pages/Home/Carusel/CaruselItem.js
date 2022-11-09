@@ -13,18 +13,17 @@ const CaruselItem = ({slide}) => {
                     <a href={`#slide${prev}`} className="btn btn-circle mr-5">❮</a>
                     <a href={`#slide${next}`} className="btn btn-circle">❯</a>
                 </div>
-                <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
-                    <h1 className='font-bold text-6xl text-white'>Affordable <br />
-                    Price For Car <br />
-                    Servicing
+                <div className="absolute flex justify-end transform -translate-y-1/2 md:left-24 left-2 top-1/4">
+                    <h1 className='font-bold md:text-5xl text-3xl italic text-white'>The Complete Guide <br />
+                    to Wedding <br />
+                    Photography   
                     </h1>
                 </div>
-                <div className="absolute flex justify-end transform -translate-y-1/2 left-24 w-2/5 top-1/2">
+                <div className="absolute flex justify-end transform -translate-y-1/2 md:left-24 left-2 md:w-2/5 w-full top-1/2">
                     <p className='text-white text-xl'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                 </div>
-                <div className="absolute flex justify-start transform -translate-y-1/2 left-24  top-3/4">
-                <button className="btn btn-warning mr-5">Warning</button>
-                <button className="btn btn-outline btn-warning">Warning</button>
+                <div className="absolute flex justify-start transform -translate-y-1/2 md:left-24 left-2 top-3/4">
+                <button className="btn btn-outline btn-warning">Subscribe</button>
                 </div>
             </div>
     );

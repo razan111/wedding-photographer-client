@@ -53,7 +53,7 @@ const AddService = () => {
                             <input onBlur={handleInputBlur} type="text" name='ratting' placeholder="Ratting" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
-                            <input type="text" name='view' placeholder="View" className="input input-bordered" required />
+                            <input onBlur={handleInputBlur} type="text" name='view' placeholder="View" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <input onBlur={handleInputBlur} type="text" name='details' placeholder="Service Details" className="input input-bordered" required />

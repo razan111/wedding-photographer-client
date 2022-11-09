@@ -20,11 +20,12 @@ const Header = () => {
     const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
     <li className='font-semibold'><Link to='/services'>Services</Link></li>
-    <li className='font-semibold'><Link to='/addservice'>AddService</Link></li>
+   
     <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
    {
     user?.uid ?  
     <>
+     <li className='font-semibold'><Link to='/addservice'>AddService</Link></li>
     <li onClick={handleLogOut} className='font-semibold'><Link>LogOut</Link></li>
     </>
     :
@@ -52,10 +53,12 @@ const Header = () => {
                     {menuItems}
 
                 </ul>
+
+                
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end hidden md:flex">
                 <span>{user?.email}</span>
-                <a className="btn">Get started</a>
+                <Link className="btn">Get started</Link>
             </div>
         </div>
     );

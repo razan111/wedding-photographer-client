@@ -3,6 +3,7 @@ import Blog from "../../Pages/Blog/Blog";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import AddService from "../../Pages/Services/AddService";
+import Review from "../../Pages/Services/Review";
 import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import Services from "../../Pages/Services/Services";
 import Login from "../../Pages/Shared/Login/Login";
@@ -44,6 +45,15 @@ const router = createBrowserRouter([
 
                 },
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
+            },
+            
+            {
+                path: '/reviews/:reviewsId',
+                loader: async({params}) =>{
+                    return fetch(`http://localhost:5000/reviews/${params.serviceId}`)
+
+                },
+                element: <PrivateRoute><Review></Review></PrivateRoute>
             },
             {
                 path: '/addservice',
