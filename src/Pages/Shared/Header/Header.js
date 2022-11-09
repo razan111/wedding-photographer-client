@@ -20,6 +20,7 @@ const Header = () => {
     const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
     <li className='font-semibold'><Link to='/services'>Services</Link></li>
+    <li className='font-semibold'><Link to='/addservice'>AddService</Link></li>
     <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
    {
     user?.uid ?  
@@ -53,6 +54,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <span>{user?.email}</span>
                 <a className="btn">Get started</a>
             </div>
         </div>
