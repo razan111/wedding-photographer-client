@@ -1,7 +1,9 @@
+import { async } from "@firebase/util";
 import Blog from "../../Pages/Blog/Blog";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import AddService from "../../Pages/Services/AddService";
+import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import Services from "../../Pages/Services/Services";
 import Login from "../../Pages/Shared/Login/Login";
 import Registation from "../../Pages/Shared/Login/Registation";
@@ -32,8 +34,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                // loader: 'http://localhost:5000/services',
                 element: <Services></Services>
+            },
+            {
+                path: '/services/:serviceId',
+                loader: async({params}) =>{
+                    return fetch(`http://localhost:5000/services/${params.serviceId}`)
+
+                },
+                element: <ServiceDetails></ServiceDetails>
             },
             {
                 path: '/addservice',
