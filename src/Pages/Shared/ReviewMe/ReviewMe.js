@@ -8,7 +8,7 @@ const ReviewMe = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+        fetch(`https://wedding-photographer-server-woad.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('weddingToken')}`
             }
@@ -28,7 +28,7 @@ const ReviewMe = () => {
     const handleDelete = (id) =>{
         const proceed = window.confirm('Are you want to delete comment')
         if(proceed){
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://wedding-photographer-server-woad.vercel.app/reviews/${id}`, {
                 method: "DELETE",
             })
             .then(res => res.json())
@@ -57,10 +57,10 @@ const ReviewMe = () => {
                                     <input type="checkbox" className="checkbox" />
                                 </label>
                             </th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
+                            <th>Name & Email</th>
+                            <th>Message</th>
+                            <th>Ratting</th>
+                            
                         </tr>
                     </thead>
                     <tbody>

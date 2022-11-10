@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 const AddService = () => {
 
     const [user, setUser] = useState({})
+    
 
-    const handleAddUser = (event) =>{
+    const handleAddUser = (event) => {
         event.preventDefault()
 
-        fetch('http://localhost:5000/services', {
+
+        fetch('https://wedding-photographer-server-woad.vercel.app/services', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -15,17 +17,22 @@ const AddService = () => {
             body: JSON.stringify(user)
 
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                alert("Successfully added service...")
+                
+            })
+            
     }
-    const handleInputBlur = event =>{
+    const handleInputBlur = event => {
         const field = event.target.name;
         const value = event.target.value;
-        const newUser = {...user}
+        const newUser = { ...user }
         newUser[field] = value;
         setUser(newUser)
+        value.reset()
+
     }
 
 

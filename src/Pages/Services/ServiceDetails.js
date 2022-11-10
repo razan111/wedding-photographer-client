@@ -3,9 +3,10 @@ import React, { children, useState } from 'react';
 import { AiFillEye, AiFillStar } from 'react-icons/ai';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import Review from './Review';
+import SeviceReview from './SeviceReview';
 
 const ServiceDetails = () => {
-   
+
 
 
     const service = useLoaderData()
@@ -37,10 +38,14 @@ const ServiceDetails = () => {
             </div>
 
             <div>
+                {/* <Outlet></Outlet> */}
                 <Review></Review>
-               
+
+
+
             </div>
-            
+
+
         </div>
     );
 };

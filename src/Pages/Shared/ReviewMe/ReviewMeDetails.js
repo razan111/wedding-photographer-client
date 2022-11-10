@@ -5,12 +5,7 @@ const ReviewMeDetails = ({re, handleDelete}) => {
 
     const [reviewService, setReviewService] = useState({})
 
-    // useEffect(() =>{
-    //     fetch(`http://localhost:5000/reviews/${review}`)
-    //     .then(res => res.json())
-    //     .then(data => setReviewService(data))
-    // },[review])
-
+    
 
    
 
@@ -41,14 +36,10 @@ const ReviewMeDetails = ({re, handleDelete}) => {
                 <div>
                     {message}
                 </div>
-                {/* Zemlak, Daniel and Leannon
-                <br />
-                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span> */}
+                
             </td>
-            <td>Purple</td>
-            <th>
-                <button className="btn btn-ghost btn-xs">details</button>
-            </th>
+            <td>{ratting}</td>
+            
         </tr>
     );
 };

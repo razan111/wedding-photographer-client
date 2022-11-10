@@ -14,7 +14,7 @@ const Review = () => {
         toast('Reciew Done')
         alert('Review Done')
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://wedding-photographer-server-woad.vercel.app/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

@@ -6,6 +6,7 @@ import AddService from "../../Pages/Services/AddService";
 import Review from "../../Pages/Services/Review";
 import ServiceDetails from "../../Pages/Services/ServiceDetails";
 import Services from "../../Pages/Services/Services";
+import SeviceReview from "../../Pages/Services/SeviceReview";
 import Login from "../../Pages/Shared/Login/Login";
 import Registation from "../../Pages/Shared/Login/Registation";
 import ReviewMe from "../../Pages/Shared/ReviewMe/ReviewMe";
@@ -42,12 +43,14 @@ const router = createBrowserRouter([
             {
                 path: '/services/:serviceId',
                 loader: async ({ params }) => {
-                    return fetch(`http://localhost:5000/services/${params.serviceId}`)
+                    return fetch(`https://wedding-photographer-server-woad.vercel.app/services/${params.serviceId}`)
 
                 },
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
+               
                 
             },
+           
 
             {
                 path: '/reviews',
@@ -57,7 +60,7 @@ const router = createBrowserRouter([
             {
                 path: '/reviews/:reviewsId',
                 loader: async({params}) =>{
-                    return fetch(`http://localhost:5000/reviews/${params.reviewsId}`)
+                    return fetch(`https://wedding-photographer-server-woad.vercel.app/reviews/${params.reviewsId}`)
 
                 },
                 element: <PrivateRoute><Review></Review></PrivateRoute>
