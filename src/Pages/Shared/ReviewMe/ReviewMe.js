@@ -3,14 +3,26 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import ReviewMeDetails from './ReviewMeDetails';
 
 const ReviewMe = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const [review, setReview] = useState([])
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => setReview(data))
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('weddingToken')}`
+            }
+        })
+            .then(res => {
+                if(res.status === 401 || res.status === 403){
+                    logOut()
+                }
+                return res.json()
+            })
+            .then(data => {
+                // console.log('received',data)
+                setReview(data)
+            })
     }, [user?.email])
 
     const handleDelete = (id) =>{
@@ -33,7 +45,7 @@ const ReviewMe = () => {
 
     return (
         <div>
-            <p>{review.length}</p>
+            <p className='text-5xl text-center'>Total Review: {review.length}</p>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
