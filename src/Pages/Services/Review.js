@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const Review = () => {
@@ -10,6 +11,8 @@ const Review = () => {
     const handleReview = (event) => {
         event.preventDefault()
         event.target.reset()
+        toast('Reciew Done')
+        alert('Review Done')
 
         fetch('http://localhost:5000/reviews', {
             method: "POST",
