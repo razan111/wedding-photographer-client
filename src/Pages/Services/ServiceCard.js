@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { AiFillStar , AiFillEye} from 'react-icons/ai';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -11,7 +13,12 @@ const ServiceCard = ({ service }) => {
 
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            <PhotoProvider>
+            <PhotoView src={img}>
             <figure><img className='h-56 w-full object-cover' src={img} alt="Shoes" /></figure>
+            </PhotoView>
+            </PhotoProvider>
+            
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
                 <p>
@@ -36,7 +43,7 @@ const ServiceCard = ({ service }) => {
                 <div className="card-actions justify-end">
                    
                     <Link to={`/services/${_id}`}>
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary">Details</button>
                     </Link>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
-import React, { useState } from 'react';
+import React, { children, useState } from 'react';
 import { AiFillEye, AiFillStar } from 'react-icons/ai';
-import { useLoaderData } from 'react-router-dom';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Review from './Review';
 
 const ServiceDetails = () => {
@@ -11,7 +11,8 @@ const ServiceDetails = () => {
     const service = useLoaderData()
     const { _id, title, img, details, price, ratting, view, name } = service;
     return (
-        <div className='my-12 grid grid-cols-1 md:grid-cols-2'>
+
+        <div className='my-12 '>
             <div className="card card-compact w-full bg-base-100 shadow-xl">
                 <figure><img className='h-96 w-full object-cover' src={img} alt="Shoes" /></figure>
                 <div className="card-body">
@@ -37,6 +38,7 @@ const ServiceDetails = () => {
 
             <div>
                 <Review></Review>
+               
             </div>
             
         </div>
